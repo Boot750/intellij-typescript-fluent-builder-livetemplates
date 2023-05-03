@@ -1,0 +1,1 @@
+rootProject.name = "intellij-typescript-fluent-builder-liveteamplates"

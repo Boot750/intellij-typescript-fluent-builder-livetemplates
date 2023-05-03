@@ -1,0 +1,42 @@
+<templateSet group="Typescript Fluent Builder">
+    <template name="withArr" value="with$entityName$(builderFunction: (builder: $entityName$Builder) =&gt; void = e =&gt; e): $currentBuilderName$ {&#10;    const newBuilder = new $entityName$Builder();&#10;    builderFunction(newBuilder);&#10;    this.$builderArray$Builders.push(newBuilder);&#10;    return this;&#10; }" description="With builder array" toReformat="false" toShortenFQNames="true">
+        <variable name="entityName" expression="EntityName" defaultValue="Id" alwaysStopAt="true" />
+        <variable name="currentBuilderName" expression="jsClassName()" defaultValue="" alwaysStopAt="true" />
+        <variable name="builderArray" expression="decapitalize(entityName)" defaultValue="" alwaysStopAt="true" />
+        <context>
+            <option name="TypeScript" value="true" />
+        </context>
+    </template>
+    <template name="withField" value="    with$fieldName$($fieldNameLower$: $type$): $currentBuilderName$ {&#10;        this.$fieldNameLower$ = $fieldNameLower$;&#10;        return this;&#10;    }" description="With field" toReformat="true" toShortenFQNames="true">
+        <variable name="fieldName" expression="" defaultValue="FieldName" alwaysStopAt="true" />
+        <variable name="fieldNameLower" expression="decapitalize(fieldName)" defaultValue="" alwaysStopAt="false" />
+        <variable name="type" expression="" defaultValue="string" alwaysStopAt="true" />
+        <variable name="currentBuilderName" expression="jsClassName()" defaultValue="" alwaysStopAt="true" />
+        <context>
+            <option name="TypeScript" value="true" />
+        </context>
+    </template>
+    <template name="builder" value="export class $builderName$ {&#10;    constructor(builderFunction: (builder: $builderName$) =&gt; void = (e) =&gt; e) {&#10;        builderFunction(this);&#10;    }&#10;&#10;    build(): $entity$ {&#10;        return {} as $entity$;&#10;    }&#10;}" description="New builder" toReformat="false" toShortenFQNames="true">
+        <variable name="builderName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+        <variable name="entity" expression="substringBefore(builderName, &quot;Builder&quot;)" defaultValue="" alwaysStopAt="true" />
+        <context>
+            <option name="TypeScript" value="true" />
+        </context>
+    </template>
+    <template name="withNull" value="    with$entityName$(&#10;        builderFunction: (builder: $entityName$Builder) =&gt; void = (e) =&gt; e&#10;    ): $currentBuilder$ {&#10;        const newBuilder = new $entityName$Builder();&#10;        builderFunction(newBuilder);&#10;        this.$entityNameDecaps$Builder = newBuilder;&#10;        return this;&#10;    }" description="With nullable builder" toReformat="false" toShortenFQNames="true">
+        <variable name="entityName" expression="" defaultValue="EntityName" alwaysStopAt="true" />
+        <variable name="currentBuilder" expression="jsClassName()" defaultValue="" alwaysStopAt="false" />
+        <variable name="entityNameDecaps" expression="decapitalize(entityName)" defaultValue="" alwaysStopAt="false" />
+        <context>
+            <option name="TypeScript" value="true" />
+        </context>
+    </template>
+    <template name="withBuild" value="    with$entityName$(&#10;        builderFunction: (builder: $entityName$Builder) =&gt; void = (e) =&gt; e&#10;    ): $currentBuilder$ {&#10;        builderFunction(this.$entityNameDecaps$Builder);&#10;        return this;&#10;    }" description="With a non nullable builder" toReformat="false" toShortenFQNames="true">
+        <variable name="entityName" expression="" defaultValue="EntityName" alwaysStopAt="true" />
+        <variable name="currentBuilder" expression="jsClassName()" defaultValue="" alwaysStopAt="false" />
+        <variable name="entityNameDecaps" expression="decapitalize(entityName)" defaultValue="" alwaysStopAt="false" />
+        <context>
+            <option name="TypeScript" value="true" />
+        </context>
+    </template>
+</templateSet>
