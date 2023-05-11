@@ -15,6 +15,19 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
       <p>Live templates for TypeScript to create fluent builders and provide supporting templates.</p>
+
+      <p> Templates </p>
+      <p> This plugin provides the following templates: </p>
+
+<li> <tt>builder</tt> - Creates a new builder with context of the current file.</li>
+<li> <tt>withField</tt> - Adds a 'with' function for a field to the current builder.</li>
+<li> <tt>withBuild</tt> - Adds a 'with' function for a sub-builder to the current builder.</li>
+<li> <tt>withNull</tt> - Adds a 'with' function for a nullable sub-builder to the current builder.</li>
+<li> <tt>withArr</tt> - Adda a 'with' function to append to a list of sub-builders.</li>
+
+<p>Checkout <a href="https://github.com/Boot750/intellij-typescript-fluent-builder-livetemplates">github.com/Boot750/intellij-typescript-fluent-builder-livetemplates</a>
+      for details on available live templates.</p>
+
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
