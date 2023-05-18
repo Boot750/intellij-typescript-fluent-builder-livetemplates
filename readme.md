@@ -35,10 +35,12 @@ Example usage:
 
 Template:
 ```
-    with$fieldName$($fieldNameLower$: $type$): $currentBuilderName$ {
-        this.$fieldNameLower$ = $fieldNameLower$;
-        return this;
-    }
+private $fieldName$: $type$ = $defaultValue$;
+
+with$capitalizedFieldName$($fieldName$: $type$): this {
+    this.$fieldName$ = $fieldName$;
+    return this;
+}
 ```
 
 Example usage:
@@ -49,12 +51,14 @@ Example usage:
 
 Template:
 ```
- with$entityName$(
-        builderFunction: (builder: $entityName$Builder) => void = (e) => e
-    ): $currentBuilder$ {
-        builderFunction(this.$entityNameDecaps$Builder);
-        return this;
-    }
+private $entityName$Builder: $builderName$Builder = new $builderName$Builder();
+
+with$capitalizedEntityName$(
+    builderFunction: (builder: $builderName$Builder) => void = (e) => e
+): this {
+    builderFunction(this.$entityName$Builder);
+    return this;
+}
 ```
 
 Example usage:
@@ -65,14 +69,16 @@ Example usage:
 
 Template:
 ```
-    with$entityName$(
-        builderFunction: (builder: $entityName$Builder) => void = (e) => e
-    ): $currentBuilder$ {
-        const newBuilder = new $entityName$Builder();
-        builderFunction(newBuilder);
-        this.$entityNameDecaps$Builder = newBuilder;
-        return this;
-    }
+private $entityName$Builder: $builderName$Builder;
+
+with$capitalizedEntityName$(
+    builderFunction: (builder: $builderName$Builder) => void = (e) => e
+): this {
+    const newBuilder = new $builderName$Builder();
+    builderFunction(newBuilder);
+    this.$entityName$Builder = newBuilder;
+    return this;
+}
 ```
 
 Example usage:
@@ -83,12 +89,14 @@ Example usage:
 
 Template:
 ```
-    with$entityName$(builderFunction: (builder: $entityName$Builder) => void = e => e): $currentBuilderName$ {
-        const newBuilder = new $entityName$Builder();
-        builderFunction(newBuilder);
-        this.$builderArray$Builders.push(newBuilder);
-        return this;
-     }
+private $entityName$Builders: $builderName$Builder[] = [];
+
+with$capitalizedEntityName$(builderFunction: (builder: $builderName$Builder) => void = e => e): this {
+    const newBuilder = new $builderName$Builder();
+    builderFunction(newBuilder);
+    this.$entityName$Builders.push(newBuilder);
+    return this;
+ }
 ```
 
 Example usage:
