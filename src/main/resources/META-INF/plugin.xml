@@ -34,7 +34,9 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <change-notes>
-        Added the creation of the field to the 'with' function to have compiling code generated.
+        - Added the creation of the field to the 'with' function to have compiling code generated.
+        - Use `this` as a return type instead of the type of the builder.
+        - Allow to have different field name than the builder type (default remains having the same name).
     </change-notes>
 
     <!-- Extension points defined by the plugin.
