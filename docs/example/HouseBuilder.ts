@@ -17,18 +17,18 @@ export class HouseBuilder {
     }
 
     // withField
-    withNumber(number: number): HouseBuilder {
+    withNumber(number: number): this {
         this.number = number;
         return this;
     }
 
     // withBuild
-    withRoof(builderFunction: (builder: RoofBuilder) => void = (e) => e): HouseBuilder {
+    withRoof(builderFunction: (builder: RoofBuilder) => void = (e) => e): this {
         builderFunction(this.roofBuilder);
         return this;
     }
 
-    withPool(builderFunction: (builder: PoolBuilder) => void = (e) => e): HouseBuilder {
+    withPool(builderFunction: (builder: PoolBuilder) => void = (e) => e): this {
         const newBuilder = new PoolBuilder();
         builderFunction(newBuilder);
         this.poolBuilder = newBuilder;
@@ -36,7 +36,7 @@ export class HouseBuilder {
     }
 
     // withArr
-    withRoom(builderFunction: (builder: RoomBuilder) => void = (e) => e): HouseBuilder {
+    withRoom(builderFunction: (builder: RoomBuilder) => void = (e) => e): this {
         const newBuilder = new RoomBuilder();
         builderFunction(newBuilder);
         this.roomBuilders.push(newBuilder);
