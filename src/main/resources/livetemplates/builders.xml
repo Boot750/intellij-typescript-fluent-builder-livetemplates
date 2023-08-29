@@ -16,7 +16,7 @@
       <option name="TypeScript" value="true" />
     </context>
   </template>
-  <template name="builder" value="export class $builderName$ {&#10;    constructor(builderFunction: (builder: $builderName$) =&gt; void = () =&gt; {}) {&#10;        builderFunction(this);&#10;    }&#10;&#10;    build(): $entity$ {&#10;        return {} as $entity$;&#10;    }&#10;}" description="New builder" toReformat="true" toShortenFQNames="true">
+  <template name="builder" value="export class $builderName$ {&#10;    constructor(builderFunction: (builder: $builderName$) =&gt; void = () =&gt; {}) {&#10;        builderFunction(this);&#10;    }&#10;&#10;    build(): $entity$ {&#10;        return {};&#10;    }&#10;}" description="New builder" toReformat="true" toShortenFQNames="true">
     <variable name="builderName" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <variable name="entity" expression="substringBefore(builderName, &quot;Builder&quot;)" defaultValue="" alwaysStopAt="true" />
     <context>
